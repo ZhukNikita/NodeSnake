@@ -1,0 +1,35 @@
+@mixin flex ($position , $content){
+  display: flex;
+  align-items: $position;
+  justify-content: $content;
+  width: 100%;
+  height: 800px;
+}
+
+.App{
+  @include flex(center , center);
+  flex-direction: column;
+  .inputName{
+    @include flex(end , center);
+    margin-top: 50px;
+    width: 300px;
+    height: 43px;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+    input{
+      margin: 0 15px;
+      width: 100%;
+      padding: 5px 8px;
+      border: 1px solid #a5a5a5;
+      border-radius: 6px;
+      outline: none;
+    }
+  }
+
+  .gameBody{
+    @include flex(center , space-between);
+    width: calc(25px * 16 + 10px);
+    height: calc(25px * 16 + 10px);
+    margin: 0;
+  }
+}

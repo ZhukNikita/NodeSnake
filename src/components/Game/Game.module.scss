@@ -1,0 +1,33 @@
+.game{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: calc(25px * 16);
+  height: calc(25px * 16);
+  background-color: #9bba5a;
+  color: rgba(0,0,0,0.75);
+  border: 3px solid rgba(0,0,0,0.75);
+  outline: none;
+  position: relative;
+  .cell{
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    position: relative;
+  }
+  .snake{
+    background-color: #738f48;
+    width: 25px;
+    height: 25px;
+    border-radius: 8px;
+  }
+  .start{
+    margin: auto;
+    position: absolute;
+    left: 45%;
+    top: 10%;
+  }
+}
