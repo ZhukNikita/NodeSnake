@@ -15,7 +15,7 @@ export default function StartScreen({setIsGame}) {
 
                 <button className={styles.start} onClick={()=>setIsGame(true)}>Start!</button>
             </div>
-            <h3>Top 10 High Score:</h3>
+            <div></div>
         </div>
     )
 }
