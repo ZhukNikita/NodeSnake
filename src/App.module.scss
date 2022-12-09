@@ -2,13 +2,12 @@
   display: flex;
   align-items: $position;
   justify-content: $content;
-  width: 100%;
-  height: 800px;
 }
 
 .App{
   @include flex(center , center);
   flex-direction: column;
+  height: 800px;
   .inputName{
     @include flex(end , center);
     margin-top: 50px;

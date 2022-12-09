@@ -1,0 +1,23 @@
+@mixin flex ($position , $content){
+  display: flex;
+  align-items: $position;
+  justify-content: $content;
+
+}
+.body{
+  width: calc(25px * 16 + 5px);
+  .points{
+    @include flex(center, space-between);
+
+    h4:first-child{
+      width: 280px;
+    }
+
+  }
+  div{
+
+    h4:last-child{
+      font-size: 14px;
+    }
+  }
+}
