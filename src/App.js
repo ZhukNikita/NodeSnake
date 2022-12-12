@@ -14,7 +14,7 @@ function App() {
     const [name , setName] = useState('')
     const FieldSize = 16
     const FieldRow = [...new Array(FieldSize).keys()]
-    let arrForSort = data?.data.slice(0,10)
+    let arrForSort = data?.data.slice(0).sort((a,b)=> b.score - a.score)
     function toMenu(){
         setIsGame(false)
     }
