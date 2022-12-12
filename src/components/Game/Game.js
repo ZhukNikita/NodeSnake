@@ -7,11 +7,11 @@ import Interval from "./Interval";
 import EndScreen from "../EndScreen/EndScreen";
 import PauseScreen from "../PauseScreen/PauseScreen";
 
-export default function Game({FieldSize, FieldRow, isGame , toMenu}) {
+export default function Game({FieldSize, FieldRow, isGame ,setName, toMenu , name}) {
     const divFocus = useRef(null)
     const [canClick, setCanClick] = useState(true)
     const [isPaused, setIsPaused] = useState(false)
-    const [scores, setScores] = useState(0)
+    const [score, setScores] = useState(0)
     const [foodItem, setFoodItem] = useState({
         type: (Math.floor(Math.random() * (3 - 1 + 1)) + 1),
         x: Math.floor(Math.random() * FieldSize),
@@ -27,7 +27,7 @@ export default function Game({FieldSize, FieldRow, isGame , toMenu}) {
     )
     useEffect(()=>{
         divFocus.current.focus()
-    },[ , snake])
+    },[ null , snake])
 
     const direction = {
         Right: {x: 0, y: 1},
@@ -55,10 +55,10 @@ export default function Game({FieldSize, FieldRow, isGame , toMenu}) {
         }
 
         if (snakeEat(newHead, foodItem)) {
-            if (foodItem.type === 3)setScores(scores + 10)
+            if (foodItem.type === 3)setScores(score + 10)
             else
-            if (foodItem.type === 2)setScores(scores + 5)
-            else setScores(scores + 1)
+            if (foodItem.type === 2)setScores(score + 5)
+            else setScores(score + 1)
 
             setFoodItem({
                 type: (Math.floor(Math.random() * (3 - 1 + 1)) + 1),
@@ -121,13 +121,13 @@ export default function Game({FieldSize, FieldRow, isGame , toMenu}) {
         if (e.key === 'p' || e.key === ' ') setIsPaused(!isPaused)
     }
     function speed(){
-        if(scores >= 50 && scores < 100){
+        if(score >= 50 && score < 100){
             return 100
         }else{
-        if(scores >= 100 && scores < 150){
+        if(score >= 100 && score< 150){
             return 80
         }else{
-            if(scores >= 150){
+            if(score>= 150){
                 return 60
             }
         }}
@@ -136,7 +136,7 @@ export default function Game({FieldSize, FieldRow, isGame , toMenu}) {
     Interval(() => {
         setSnake(snake => newPosition(snake, directionState))
     }, (!isGame || snakeLose || isPaused) ? null : speed())
-    console.log(speed())
+
     return (
         <div className={styles.game} tabIndex={0} onKeyDown={PlayerMove} ref={divFocus}>
             {!snakeLose &&
@@ -150,12 +150,20 @@ export default function Game({FieldSize, FieldRow, isGame , toMenu}) {
                 </div>
             }
             {
-                snakeLose && <EndScreen setScores={setScores} scores={scores} toMenu={toMenu} setDirection={setDirection} direction={direction} setSnake={setSnake}/>
+                snakeLose && <EndScreen
+                    name={name}
+                    setScores={setScores}
+                    score={score}
+                    toMenu={toMenu}
+                    setDirection={setDirection}
+                    direction={direction}
+                    setSnake={setSnake}
+                />
             }
             {  !snakeLose &&
                 (<div className={styles.scores}>
                     <h4>Scores:</h4>
-                    <h4>{scores}</h4>
+                    <h4>{score}</h4>
                 </div>)
             }
 
