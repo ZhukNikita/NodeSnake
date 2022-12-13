@@ -7,7 +7,7 @@ import Interval from "./Interval";
 import EndScreen from "../EndScreen/EndScreen";
 import PauseScreen from "../PauseScreen/PauseScreen";
 
-export default function Game({FieldSize, FieldRow, isGame ,setName, toMenu , name}) {
+export default function Game({FieldSize, FieldRow, isGame , toMenu , name}) {
     const divFocus = useRef(null)
     const [canClick, setCanClick] = useState(true)
     const [isPaused, setIsPaused] = useState(false)

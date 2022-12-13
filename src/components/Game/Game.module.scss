@@ -1,11 +1,10 @@
-.game{
+  .game{
   display: flex;
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
   width: calc(25px * 16);
   height: 100%;
-  background-color: #9bba5a;
   color: rgba(0,0,0,0.75);
   outline: none;
   position: relative;
