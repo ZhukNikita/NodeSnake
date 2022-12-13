@@ -102,19 +102,19 @@ export default function Game({FieldSize, FieldRow, isGame , toMenu , name}) {
     }
 
     function PlayerMove(e) {
-        if ((e.key === 'ArrowUp' || e.key === 'w') && canClick && directionState.x !== 1 && directionState.y !== 0) {
+        if ((e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W' || e.key === 'ц') && canClick && directionState.x !== 1 && directionState.y !== 0) {
             setDirection(direction.Top)
             ClickTimeout()
         }
-        if ((e.key === 'ArrowLeft' || e.key === 'a') && canClick && directionState.x !== 0 && directionState.y !== 1) {
+        if ((e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A' || e.key === 'ф') && canClick && directionState.x !== 0 && directionState.y !== 1) {
             setDirection(direction.Left)
             ClickTimeout()
         }
-        if ((e.key === 'ArrowDown' || e.key === 's') && canClick && directionState.x !== -1 && directionState.y !== 0) {
+        if ((e.key === 'ArrowDown' || e.key === 's' || e.key === 'S' || e.key === 'ы') && canClick && directionState.x !== -1 && directionState.y !== 0) {
             setDirection(direction.Down)
             ClickTimeout()
         }
-        if ((e.key === 'ArrowRight' || e.key === 'd') && canClick && directionState.x !== 0 && directionState.y !== -1) {
+        if ((e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D'|| e.key === 'в') && canClick && directionState.x !== 0 && directionState.y !== -1) {
             setDirection(direction.Right)
             ClickTimeout()
         }

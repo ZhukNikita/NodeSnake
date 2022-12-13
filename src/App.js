@@ -24,7 +24,7 @@ function App() {
     useEffect(()=>{
         dispatch(getPlayers())
     },[isGame])
-    if(name === '') setName('NoName')
+    if(name === '') setName('Anonymous')
     return (
     <div className={styles.App} >
         <div>
