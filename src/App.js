@@ -6,6 +6,7 @@ import GuideBlock from "./components/GuideBlock/GuideBlock";
 import TopHighScores from "./components/TopHighScore/TopHighScores";
 import {useDispatch, useSelector} from "react-redux";
 import {getPlayers} from "./redux/slices/Player";
+import axios from "./axios";
 
 function App() {
     const dispatch = useDispatch()
@@ -20,6 +21,10 @@ function App() {
     }
     function inputName(e){
         setName(e.target.value)
+    }
+    async function TopScores(){
+        const {data} = await axios.get('/api/player')
+        return data
     }
     useEffect(()=>{
         dispatch(getPlayers())
@@ -39,7 +44,7 @@ function App() {
                     isGame && <Game name={name} toMenu={toMenu} FieldSize = {FieldSize} FieldRow = {FieldRow} isGame={isGame}/>
                 }
             </div>
-            {!isGame && <TopHighScores data ={arrForSort}/>}
+            {!isGame && <TopHighScores TopScores={TopScores} data ={arrForSort}/>}
         </div>
 
     </div>

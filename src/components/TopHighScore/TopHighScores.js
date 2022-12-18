@@ -1,9 +1,13 @@
 import styles from './TopHighScores.module.scss'
 import {useState} from "react";
 
-export default function TopHighScores({data}) {
+export default function TopHighScores({data , TopScores}) {
     const [isOpen, setIsOpen] = useState(false)
     const arr = data?.slice(0,10)
+    function onClick(){
+        setIsOpen(!isOpen)
+        TopScores()
+    }
     return(
         <div className={styles.body}>
             <h3>Top 10 Players:</h3>
@@ -20,7 +24,7 @@ export default function TopHighScores({data}) {
 
             {
                !isOpen &&
-                   <div onClick={()=>setIsOpen(!isOpen)} className={styles.open}>open</div>
+                   <div onClick={onClick} className={styles.open}>open</div>
             }
             {
                 isOpen &&
